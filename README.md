@@ -1,5 +1,5 @@
 # Fruit-Sabzi-Mandi-Application
-## Motivatin 
+## Motivation 
 I belong to agriculture side background. I have practically hands on experience in fruit 
 sabzi mandi market. As a farmer I am fully blank like what was rates of fruit sabzi yesterday all over the 
 Pakistan. You can only get to know market rates from commission shops at every mandi. For rate 
