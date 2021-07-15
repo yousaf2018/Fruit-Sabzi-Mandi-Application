@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "887695172680",
+    "project_id": "fruit-sabzi-mandi-6b990",
+    "storage_bucket": "fruit-sabzi-mandi-6b990.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:887695172680:android:1238a36dbc54fafed3e47d",
+        "android_client_info": {
+          "package_name": "com.example.fruit_sabzi_mandi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "887695172680-riocu9566jiuqkvrhsg7nd5id0b6fj14.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASsjNop4Esqx7z6v9gfs1SvQ5LKlRqVdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "887695172680-riocu9566jiuqkvrhsg7nd5id0b6fj14.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

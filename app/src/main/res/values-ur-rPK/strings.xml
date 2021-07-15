@@ -2,11 +2,11 @@
 <resources>
     <string name="app_name">پھل سبزی منڈی</string>
     <string name="intro">ایپ کو محمود یوسف نے تیار کیا ہے</string>
-    <string name="wellcome">ویلکوم فروٹ سبزی منڈی</string>
+    <string name="wellcome">خوش آمدید فروٹ سبزی منڈی</string>
     <string name="commissionShop">کمیشن شاپ ڈیش بورڈ</string>
     <string name="farmerDashboard">کسان ڈیش بورڈ</string>
     <string name="English">انگریزی</string>
-    <string name="Urdu">اردو</string>
+    <string name="Urdu">اردو</string>x
     <string name="Login">Login Now</string>
     <string name="Signup">Signup here</string>
     <string name="LoginDetail">Please Login to continue</string>
