@@ -22,6 +22,8 @@ public class Signup extends AppCompatActivity {
     EditText emailAddress, password, conformPassword;
     TextView textSinup;
     Button btnSignup;
+    Button btnEnglish;
+    Button btnUrdu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,25 @@ public class Signup extends AppCompatActivity {
         conformPassword = (EditText) findViewById(R.id.conformPassword);
         textSinup = (TextView) findViewById(R.id.textSinup);
         btnSignup = (Button) findViewById(R.id.btnSignup);
+        btnEnglish = (Button) findViewById(R.id.English);
+        btnUrdu = (Button) findViewById(R.id.Urdu);
+        LanguageManager languageManager=new LanguageManager(this);
+        //When user click on Urdu Button for Language Change
+        btnUrdu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageManager.updateResourse("ur");
+                recreate();
+            }
+        });
+        //When user click on English Button for Language Change
+        btnEnglish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageManager.updateResourse("en");
+                recreate();
+            }
+        });
         //When user clicks on SignUp Button
         btnSignup.setOnClickListener(new View.OnClickListener() {
 
@@ -65,7 +86,6 @@ public class Signup extends AppCompatActivity {
             }
         });
         //When user click on Login Text
-        //If user click on Sinup text than redirect to Signup page
         textSinup.setOnClickListener(new View.OnClickListener() {
 
             @Override

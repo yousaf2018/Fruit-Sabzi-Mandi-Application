@@ -5,14 +5,17 @@
     <string name="wellcome">خوش آمدید فروٹ سبزی منڈی</string>
     <string name="commissionShop">کمیشن شاپ ڈیش بورڈ</string>
     <string name="farmerDashboard">کسان ڈیش بورڈ</string>
-    <string name="English">انگریزی</string>
+    <string name="English">English</string>
     <string name="Urdu">اردو</string>x
-    <string name="Login">Login Now</string>
-    <string name="Signup">Signup here</string>
-    <string name="LoginDetail">Please Login to continue</string>
-    <string name="SignupDetail">Please enter your details below for Signup Process</string>
-    <string name="SignupAd">Donot have account? Signup</string>
-    <string name="AlreadyAccount">Already have account? Login</string>
-    <string name="dailyQuizes">Daily Quizes Subject Wise</string>
-    <string name="course_name">None</string>
+    <string name="Login">لاگ ان سیکشن</string>
+    <string name="Signup">سائن اپ سیکشن</string>
+    <string name="LoginDetail">براہ کرم جاری رکھنے کے لئے اپنی لاگ ان کی تفصیلات فراہم کریں</string>
+    <string name="SignupDetail">برائے کرم سائن اپ عمل کے لئے اپنی تفصیلات نیچے درج کریں</string>
+    <string name="SignupAd">اکاؤنٹ نہیں ہے؟ سائن اپ</string>
+    <string name="AlreadyAccount">پہلے سے ہی اکاؤنٹ ہے؟ لاگ ان کرنے کے لئے یہاں کلک کریں</string>
+    <string name="hintEmail">براہ کرم اپنا ای میل یہاں درج کریں</string>
+    <string name="hintPassword">براہ کرم یہاں اپنا پاس ورڈ درج کریں</string>
+    <string name="hintConformPassword">براہ کرم یہاں اپنا پاس ورڈ دوبارہ درج کریں</string>
+    <string name="SignupButton">سائن اپ</string>
+    <string name="LoginButton">لاگ ان کریں</string>
 </resources>

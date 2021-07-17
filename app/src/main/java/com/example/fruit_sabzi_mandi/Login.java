@@ -22,6 +22,8 @@ public class Login extends AppCompatActivity {
     EditText emailAddress, password;
     TextView textSinup;
     Button btnLogin;
+    Button btnUrdu;
+    Button btnEnglish;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,25 @@ public class Login extends AppCompatActivity {
         password = (EditText) findViewById(R.id.password);
         textSinup = (TextView) findViewById(R.id.textSinup);
         btnLogin = (Button) findViewById(R.id.btnLogin);
+        btnEnglish = (Button) findViewById(R.id.English);
+        btnUrdu = (Button) findViewById(R.id.Urdu);
+        LanguageManager languageManager=new LanguageManager(this);
+        //When user click on Urdu Button for Language Change
+        btnUrdu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageManager.updateResourse("ur");
+                recreate();
+            }
+        });
+        //When user click on English Button for Language Change
+        btnEnglish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                languageManager.updateResourse("en");
+                recreate();
+            }
+        });
         //When user click on Login button
         btnLogin.setOnClickListener(new View.OnClickListener() {
 

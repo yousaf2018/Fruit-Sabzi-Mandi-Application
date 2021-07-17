@@ -21,12 +21,14 @@ public class Intro extends AppCompatActivity {
         btnUrdu = (Button) findViewById(R.id.Urdu);
         btnEnglish = (Button) findViewById(R.id.English);
         LanguageManager languageManager=new LanguageManager(this);
-        commissionDashboard.setOnClickListener(new View.OnClickListener() {
+        //When user click on Farmer Dashboard
+        farmerDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //startActivity(new Intent(com.example.quizapplication.Intro.this,.class));
             }
         });
+        //When user click on Urdu Button for Language Change
         btnUrdu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +36,7 @@ public class Intro extends AppCompatActivity {
                 recreate();
             }
         });
+        //When user click on English Button for Language Change
         btnEnglish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +44,7 @@ public class Intro extends AppCompatActivity {
                 recreate();
             }
         });
+        //When user click on comission Dashboard Button
         commissionDashboard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

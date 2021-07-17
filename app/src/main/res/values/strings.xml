@@ -5,14 +5,17 @@
     <string name="wellcome">WelCome to Fruit Sabzi Mandi</string>
     <string name="commissionShop">Commission Shop Dashboard</string>
     <string name="farmerDashboard">Farmer Dashboard</string>
-    <string name="Login">Login Now</string>
-    <string name="Signup">Signup here</string>
-    <string name="LoginDetail">Please Login to continue</string>
+    <string name="Login">Login Section</string>
+    <string name="Signup">Signup Section</string>
+    <string name="LoginDetail">Please provide your login details to continue</string>
     <string name="SignupDetail">Please enter your details below for Signup Process</string>
     <string name="SignupAd">Donot have account? Signup</string>
-    <string name="AlreadyAccount">Already have account? Login</string>
-    <string name="dailyQuizes">Daily Quizes Subject Wise</string>
-    <string name="course_name">None</string>
+    <string name="AlreadyAccount">Already have account? Click here to login</string>
+    <string name="hintEmail">Please enter your email here</string>
+    <string name="hintPassword">Please enter your password here</string>
+    <string name="hintConformPassword">Please enter again your password here</string>
+    <string name="SignupButton">Signup</string>
+    <string name="LoginButton">Login</string>
     <string name="English">English</string>
-    <string name="Urdu">Urdu</string>
+    <string name="Urdu">اردو</string>
 </resources>
