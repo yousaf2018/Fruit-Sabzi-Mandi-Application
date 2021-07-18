@@ -17,5 +17,9 @@
     <string name="SignupButton">Signup</string>
     <string name="LoginButton">Login</string>
     <string name="English">English</string>
+    <string name="Next">Click for next</string>
+    <string name="shopName">Please enter your shop name</string>
+    <string name="location">Please enter your location</string>
+    <string name="phone">Please enter your phone number</string>
     <string name="Urdu">اردو</string>
 </resources>

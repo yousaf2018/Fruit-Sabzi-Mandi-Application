@@ -1,6 +1,11 @@
 package com.example.fruit_sabzi_mandi;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,29 +14,33 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
-public class Signup extends AppCompatActivity {
+import org.w3c.dom.Text;
+
+public class Shop_Details extends AppCompatActivity {
     private static final String TAG = "Check";
-    EditText emailAddress, password, conformPassword;
+    EditText Phone,Location,ShopName;
     TextView textSinup;
     Button btnSignup;
     Button btnEnglish;
     Button btnUrdu;
 
+
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signup);
-        emailAddress  = (EditText) findViewById(R.id.emailAddress);
-        password = (EditText) findViewById(R.id.password);
-        conformPassword = (EditText) findViewById(R.id.conformPassword);
+        setContentView(R.layout.activity_shop__details);
+        Phone  = (EditText) findViewById(R.id.phone);
+        Location = (EditText) findViewById(R.id.location);
+        ShopName = (EditText) findViewById(R.id.shopName);
         textSinup = (TextView) findViewById(R.id.textSinup);
         btnSignup = (Button) findViewById(R.id.btnSignup);
         btnEnglish = (Button) findViewById(R.id.English);
@@ -55,33 +64,22 @@ public class Signup extends AppCompatActivity {
         });
         //When user clicks on SignUp Button
         btnSignup.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                String email = emailAddress.getText().toString();
-                String passwd = password.getText().toString();
-                String conformPasswd = conformPassword.getText().toString();
-                if(email.isEmpty() || passwd.isEmpty() || conformPasswd.isEmpty()) {
+                String locationShop = Location.getText().toString();
+                String PhoneShop = Phone.getText().toString();
+                String NameShop = ShopName.getText().toString();
+                if(locationShop.isEmpty() || PhoneShop.isEmpty() || NameShop.isEmpty()) {
+                    Log.d("Hi","Location-->"+Location.getText().toString()+" Phone--->"+Phone.getText().toString()+" ShopName--->"+ShopName.getText().toString());
                     // If name or password is not entered
-                    Toast.makeText(getApplicationContext(), "Both Name and Password are required", Toast.LENGTH_LONG).show();
-                }
-                else if(!passwd.equals(conformPasswd)){
-                    Toast.makeText(getApplicationContext(), "Passwords are not match", Toast.LENGTH_LONG).show();
-                    Log.i(TAG,"Invalid-->"+email+" --->"+passwd+"    "+conformPasswd);
-
+                    Toast.makeText(getApplicationContext(), "Please make sure all fields are filled "+locationShop+" "+PhoneShop+" "+NameShop, Toast.LENGTH_LONG).show();
                 }
                 else {
-                    FirebaseAuth firebaseAuth;
-                    firebaseAuth = FirebaseAuth.getInstance();
-                    firebaseAuth.createUserWithEmailAndPassword(email,passwd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(getApplicationContext(),"Your email is successfully authenticated",Toast.LENGTH_LONG).show();
-                                startActivity(new Intent(getApplicationContext(), Shop_Details.class));
-                            }
-                        }
-                    });
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("Users");
+                    UsersDataHolder usersDataHolder=new UsersDataHolder(locationShop,PhoneShop,NameShop);
+                    myRef.child(PhoneShop).setValue(usersDataHolder);
+                    Toast.makeText(getApplicationContext(), "Congrats your account creation is successfull", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -95,6 +93,4 @@ public class Signup extends AppCompatActivity {
             }
         });
     }
-
-
 }

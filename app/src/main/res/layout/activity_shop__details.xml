@@ -46,41 +46,41 @@
             android:textColor="@color/SecondaryColor" />
 
         <EditText
-            android:id="@+id/emailAddress"
+            android:id="@+id/shopName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:background="@drawable/text_background"
             android:ems="10"
-            android:hint="@string/hintEmail"
-            android:inputType="textEmailAddress"
+            android:hint="@string/shopName"
+            android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/location"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/text_background"
             android:ems="10"
-            android:hint="@string/hintPassword"
-            android:inputType="textPassword"
+            android:hint="@string/location"
+            android:inputType="textPersonName"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/conformPassword"
+            android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:background="@drawable/text_background"
             android:ems="10"
-            android:hint="@string/hintConformPassword"
-            android:inputType="textPassword"
+            android:hint="@string/phone"
             android:textColor="@color/white"
+            android:inputType="textPersonName"
             android:textColorHint="@color/white"
             android:textSize="16sp" />
 
@@ -90,7 +90,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:background="@drawable/btn_primary"
-            android:text="@string/Next" />
+            android:text="Signup" />
 
         <TextView
             android:id="@+id/textSinup"
