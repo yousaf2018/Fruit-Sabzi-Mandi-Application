@@ -4,14 +4,24 @@ public class UsersDataHolder {
     private String Location;
     private String Phone;
     private String shopName;
+    private String email;
 
     public UsersDataHolder(){
     }
 
-    public UsersDataHolder(String location, String phone, String shopName) {
+    public UsersDataHolder(String location, String phone, String shopName,String email) {
         Location = location;
         Phone = phone;
         this.shopName = shopName;
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLocation() {

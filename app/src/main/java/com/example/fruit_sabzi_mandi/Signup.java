@@ -1,6 +1,7 @@
 package com.example.fruit_sabzi_mandi;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.w3c.dom.Text;
+
 public class Signup extends AppCompatActivity {
     private static final String TAG = "Check";
     EditText emailAddress, password, conformPassword;
@@ -24,6 +27,8 @@ public class Signup extends AppCompatActivity {
     Button btnSignup;
     Button btnEnglish;
     Button btnUrdu;
+    public static final String SHRED_PREF = "sharedPrefs";
+    public static final String Save_Email = "email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,10 +83,20 @@ public class Signup extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 Toast.makeText(getApplicationContext(),"Your email is successfully authenticated",Toast.LENGTH_LONG).show();
+                                saveData(emailAddress);
                                 startActivity(new Intent(getApplicationContext(), Shop_Details.class));
                             }
                         }
+
+                        private void saveData(EditText emailAddress) {
+                            SharedPreferences sharedPreferences = getSharedPreferences(SHRED_PREF,MODE_PRIVATE);
+                            SharedPreferences.Editor editor= sharedPreferences.edit();
+                            Toast.makeText(getApplicationContext(),""+emailAddress.getText().toString(),Toast.LENGTH_LONG).show();
+                            editor.putString(Save_Email,emailAddress.getText().toString());
+                            editor.apply();
+                        }
                     });
+
                 }
             }
         });
@@ -95,6 +110,7 @@ public class Signup extends AppCompatActivity {
             }
         });
     }
+
 
 
 }

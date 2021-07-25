@@ -1,6 +1,7 @@
 package com.example.fruit_sabzi_mandi;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,6 +25,8 @@ public class Login extends AppCompatActivity {
     Button btnLogin;
     Button btnUrdu;
     Button btnEnglish;
+    public static final String SHRED_PREF = "sharedPrefs";
+    public static final String Save_Email = "email";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +73,12 @@ public class Login extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 Toast.makeText(getApplicationContext(), "Login Successfully", Toast.LENGTH_LONG).show();
-                               // startActivity(new Intent(com.example.quizapplication.Login.this, Courses_Dashboard.class));
+                                SharedPreferences sharedPreferences = getSharedPreferences(SHRED_PREF,MODE_PRIVATE);
+                                SharedPreferences.Editor editor= sharedPreferences.edit();
+                                Toast.makeText(getApplicationContext(),""+emailAddress.getText().toString(),Toast.LENGTH_LONG).show();
+                                editor.putString(Save_Email,emailAddress.getText().toString());
+                                editor.apply();
+                                startActivity(new Intent(getApplicationContext(), Shop_Dashboard.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), "Login not Successfully", Toast.LENGTH_LONG).show();
 

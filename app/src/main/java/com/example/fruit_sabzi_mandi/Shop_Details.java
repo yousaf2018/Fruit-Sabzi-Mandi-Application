@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,6 +32,9 @@ public class Shop_Details extends AppCompatActivity {
     Button btnSignup;
     Button btnEnglish;
     Button btnUrdu;
+    String email;
+    public static final String SHRED_PREF = "sharedPrefs";
+    public static final String Save_Email = "email";
 
 
     @SuppressLint("WrongViewCast")
@@ -46,6 +50,8 @@ public class Shop_Details extends AppCompatActivity {
         btnEnglish = (Button) findViewById(R.id.English);
         btnUrdu = (Button) findViewById(R.id.Urdu);
         LanguageManager languageManager=new LanguageManager(this);
+        SharedPreferences pref = this.getSharedPreferences(SHRED_PREF, this.MODE_PRIVATE);
+        email = pref.getString(Save_Email, "email");
         //When user click on Urdu Button for Language Change
         btnUrdu.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,9 +83,10 @@ public class Shop_Details extends AppCompatActivity {
                 else {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference myRef = database.getReference("Users");
-                    UsersDataHolder usersDataHolder=new UsersDataHolder(locationShop,PhoneShop,NameShop);
-                    myRef.child(PhoneShop).setValue(usersDataHolder);
+                    UsersDataHolder usersDataHolder=new UsersDataHolder(locationShop,PhoneShop,NameShop,email.toString());
+                    myRef.child(email.replace(".",",")).setValue(usersDataHolder);
                     Toast.makeText(getApplicationContext(), "Congrats your account creation is successfull", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(),Shop_Dashboard.class));
                 }
             }
         });
