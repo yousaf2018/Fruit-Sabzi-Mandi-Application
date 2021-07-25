@@ -1,16 +1,13 @@
 package com.example.fruit_sabzi_mandi;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
-import android.widget.Toolbar;
 
+import com.example.fruit_sabzi_mandi.adapters.ViewPagerAdapter;
+import com.example.fruit_sabzi_mandi.models.UsersDataHolder;
 import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;

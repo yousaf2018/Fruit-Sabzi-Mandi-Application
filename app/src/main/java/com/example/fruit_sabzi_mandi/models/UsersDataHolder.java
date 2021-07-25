@@ -1,4 +1,4 @@
-package com.example.fruit_sabzi_mandi;
+package com.example.fruit_sabzi_mandi.models;
 
 public class UsersDataHolder {
     private String Location;

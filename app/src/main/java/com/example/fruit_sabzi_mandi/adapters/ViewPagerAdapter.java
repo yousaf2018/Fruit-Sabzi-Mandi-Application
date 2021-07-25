@@ -1,4 +1,4 @@
-package com.example.fruit_sabzi_mandi;
+package com.example.fruit_sabzi_mandi.adapters;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
