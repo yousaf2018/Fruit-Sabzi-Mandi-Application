@@ -22,4 +22,7 @@
     <string name="shopName">براہ کرم اپنی دکان کا نام درج کریں</string>
     <string name="location">براہ کرم اپنا مقام درج کریں</string>
     <string name="phone">Please enter your phone number</string>
+    <string name="select">گیلری سے تصویر منتخب کریں۔</string>
+    <string name="upload">تصویر اپ لوڈ کرنے کے لیے کلک کریں۔</string>
+
 </resources>

@@ -41,16 +41,14 @@ public class Shop_Dashboard extends AppCompatActivity {
         viewPagerAdapter =new ViewPagerAdapter((getSupportFragmentManager()));
         //ViewPager Adapter
         viewPagerAdapter.AddFragment(new Home(),"");
-        viewPagerAdapter.AddFragment(new Profile(),"");
         viewPagerAdapter.AddFragment(new Post(),"");
+        viewPagerAdapter.AddFragment(new Profile(),"");
         viewPager.setAdapter(viewPagerAdapter);
         tabLayout.setupWithViewPager(viewPager);
 
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_home_24);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_post_add_24);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_account_circle_24);
-
-
     }
 
     private void getShopName() {
@@ -60,7 +58,7 @@ public class Shop_Dashboard extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UsersDataHolder usersDataHolder = dataSnapshot.getValue(UsersDataHolder.class);
-                shopName = usersDataHolder.getShopName().toString();
+                //shopName = usersDataHolder.getShopName().toString();
                 getSupportActionBar().setTitle(shopName.toString());
             }
             @Override
