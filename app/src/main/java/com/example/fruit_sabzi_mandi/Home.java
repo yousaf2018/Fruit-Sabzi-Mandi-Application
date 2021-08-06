@@ -74,14 +74,14 @@ public class Home extends Fragment {
     */
     private void initData() {
         itemList =new ArrayList<>();
-        itemList.add(new todayDealsModelClass("Mangoes",R.drawable.fruit_sabzi_image,
-                "14/03/2021","Layyah", "180 RS/Kg"));
+        itemList.add(new todayDealsModelClass("Mangoes",R.drawable.apples,
+                "14/03/2021","Layyah", "180 RS/Kg","03346966320"));
         itemList.add(new todayDealsModelClass("Oranges",R.drawable.fruit_sabzi_image,
-                "14/03/2021","Layyah", "170 RS/Kg"));
+                "14/03/2021","Layyah", "170 RS/Kg","03346966320"));
         itemList.add(new todayDealsModelClass("Alo",R.drawable.fruit_sabzi_image,
-                "14/03/2021","Layyah", "100 RS/Kg"));
+                "14/03/2021","Layyah", "100 RS/Kg","03346966320"));
         itemList.add(new todayDealsModelClass("Tomatoes",R.drawable.fruit_sabzi_image,
-                "14/03/2021","Layyah", "110 RS/Kg"));
+                "14/03/2021","Layyah", "110 RS/Kg","03346966320"));
     }
 
 }

@@ -24,5 +24,7 @@
     <string name="Urdu">اردو</string>
     <string name="select">Select Image from Gallery</string>
     <string name="upload">Click to upload image</string>
+    <string name="Title">Please enter item name</string>
+    <string name="Price">Please enter price per Kg</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

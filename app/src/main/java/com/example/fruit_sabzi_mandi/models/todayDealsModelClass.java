@@ -8,13 +8,23 @@ public class todayDealsModelClass {
     private String todayDealDate;
     private String todayDealLocation;
     private String todayDealPrice;
+    private String todayDealContact;
 
-    public todayDealsModelClass(String todayDealTitle, int  todayDealImage, String todayDealDate, String todayDealLocation, String todayDealPrice) {
+    public todayDealsModelClass(String todayDealTitle, int  todayDealImage, String todayDealDate, String todayDealLocation, String todayDealPrice,String todayDealContact) {
         this.todayDealTitle = todayDealTitle;
         this.todayDealImage = todayDealImage;
         this.todayDealDate = todayDealDate;
         this.todayDealLocation = todayDealLocation;
         this.todayDealPrice = todayDealPrice;
+        this.todayDealContact = todayDealContact;
+    }
+
+    public String getTodayDealContact() {
+        return todayDealContact;
+    }
+
+    public void setTodayDealContact(String todayDealContact) {
+        this.todayDealContact = todayDealContact;
     }
 
     public String getTodayDealTitle() {

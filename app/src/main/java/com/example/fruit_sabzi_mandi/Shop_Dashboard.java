@@ -5,6 +5,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.WindowManager;
 
 import com.example.fruit_sabzi_mandi.adapters.ViewPagerAdapter;
 import com.example.fruit_sabzi_mandi.models.UsersDataHolder;
@@ -28,6 +29,7 @@ public class Shop_Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop__dashboard);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
         SharedPreferences pref = this.getSharedPreferences(SHRED_PREF, this.MODE_PRIVATE);
         email = pref.getString(Save_Email, "email");
         getShopName();
@@ -49,6 +51,7 @@ public class Shop_Dashboard extends AppCompatActivity {
         tabLayout.getTabAt(0).setIcon(R.drawable.ic_baseline_home_24);
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_baseline_post_add_24);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_baseline_account_circle_24);
+
     }
 
     private void getShopName() {
@@ -58,7 +61,7 @@ public class Shop_Dashboard extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UsersDataHolder usersDataHolder = dataSnapshot.getValue(UsersDataHolder.class);
-                //shopName = usersDataHolder.getShopName().toString();
+                shopName = usersDataHolder.getShopName().toString();
                 getSupportActionBar().setTitle(shopName.toString());
             }
             @Override

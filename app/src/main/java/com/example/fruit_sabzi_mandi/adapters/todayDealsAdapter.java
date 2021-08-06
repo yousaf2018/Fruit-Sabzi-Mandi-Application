@@ -27,7 +27,7 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
     private  View itemview;
     private Context context;
     private  int todayDealImage;
-    private TextView todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice;
+    private TextView todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice,todayDealContact;
     private String course_name;
 
     public  todayDealsAdapter(List<todayDealsModelClass>itemList){
@@ -48,7 +48,8 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
         String todayDealPrice = itemList.get(position).getTodayDealPrice();
         String todayDealLocation = itemList.get(position).getTodayDealLocation();
         String todayDealDate = itemList.get(position).getTodayDealDate();
-        holder.setData(todayDealImage1,todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice);
+        String todayDealContact = itemList.get(position).getTodayDealContact();
+        holder.setData(todayDealImage1,todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice,todayDealContact);
     }
 
     @Override
@@ -68,14 +69,16 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
             todayDealPrice = (TextView) itemView.findViewById(R.id.todayDealPrice);
             todayDealLocation = (TextView) itemView.findViewById(R.id.todayDealLocation);
             todayDealDate = (TextView) itemView.findViewById(R.id.todayDealDate);
+            todayDealContact = (TextView) itemView.findViewById(R.id.todayDealContactNumber);
         }
 
-        public void setData(int todayDealImage1,String todayDealTitle1,String todayDealDate1,String todayDealLocation1,String todayDealPrice1) {
+        public void setData(int todayDealImage1,String todayDealTitle1,String todayDealDate1,String todayDealLocation1,String todayDealPrice1,String todayDealContact1) {
             todayDealImage.setImageResource(todayDealImage1);
             todayDealTitle.setText(todayDealTitle1);
             todayDealDate.setText(todayDealDate1);
             todayDealLocation.setText(todayDealLocation1);
             todayDealPrice.setText(todayDealPrice1);
+            todayDealContact.setText(todayDealContact1);
             itemview.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

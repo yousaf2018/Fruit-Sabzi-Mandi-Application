@@ -12,7 +12,7 @@ public class Intro extends AppCompatActivity {
     Button btnEnglish;
     Button commissionDashboard;
     Button farmerDashboard;
-    @Override
+    ;@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
