@@ -6,6 +6,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.example.fruit_sabzi_mandi.adapters.ViewPagerAdapter;
 import com.example.fruit_sabzi_mandi.models.UsersDataHolder;
@@ -22,8 +23,10 @@ public class Shop_Dashboard extends AppCompatActivity {
     private ViewPager viewPager;
     public static final String SHRED_PREF = "sharedPrefs";
     public static final String Save_Email = "email";
+    public static final String Save_Contact = "contact";
     String email;
     String shopName = "ShopName";
+    String Contact = "034xxxxxxxx";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,11 @@ public class Shop_Dashboard extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UsersDataHolder usersDataHolder = dataSnapshot.getValue(UsersDataHolder.class);
                 shopName = usersDataHolder.getShopName().toString();
+                Contact = usersDataHolder.getPhone().toString();
+                SharedPreferences sharedPreferences = getSharedPreferences(SHRED_PREF,MODE_PRIVATE);
+                SharedPreferences.Editor editor= sharedPreferences.edit();
+                editor.putString(Save_Contact,Contact);
+                editor.apply();
                 getSupportActionBar().setTitle(shopName.toString());
             }
             @Override

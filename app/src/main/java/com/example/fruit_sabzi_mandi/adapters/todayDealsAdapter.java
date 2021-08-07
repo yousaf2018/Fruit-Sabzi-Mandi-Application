@@ -1,23 +1,18 @@
 package com.example.fruit_sabzi_mandi.adapters;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Parcelable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.fruit_sabzi_mandi.R;
 import com.example.fruit_sabzi_mandi.models.todayDealsModelClass;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -26,8 +21,7 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
     private List<todayDealsModelClass> itemList;
     private  View itemview;
     private Context context;
-    private  int todayDealImage;
-    private TextView todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice,todayDealContact;
+    private TextView todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice,todayDealContact,todayDealImage;
     private String course_name;
 
     public  todayDealsAdapter(List<todayDealsModelClass>itemList){
@@ -43,7 +37,7 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
 
     @Override
     public void onBindViewHolder(@NonNull ProgramViewHolder holder, int position) {
-        int todayDealImage1 = itemList.get(position).getTodayDealImage();
+        String todayDealImage1 = itemList.get(position).getImageUrl();
         String todayDealTitle = itemList.get(position).getTodayDealTitle();
         String todayDealPrice = itemList.get(position).getTodayDealPrice();
         String todayDealLocation = itemList.get(position).getTodayDealLocation();
@@ -72,8 +66,10 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
             todayDealContact = (TextView) itemView.findViewById(R.id.todayDealContactNumber);
         }
 
-        public void setData(int todayDealImage1,String todayDealTitle1,String todayDealDate1,String todayDealLocation1,String todayDealPrice1,String todayDealContact1) {
-            todayDealImage.setImageResource(todayDealImage1);
+        public void setData(String todayDealImage1, String todayDealTitle1, String todayDealDate1, String todayDealLocation1, String todayDealPrice1, String todayDealContact1) {
+            Glide.with(context)
+                    .load(todayDealImage1)
+                    .into(todayDealImage);
             todayDealTitle.setText(todayDealTitle1);
             todayDealDate.setText(todayDealDate1);
             todayDealLocation.setText(todayDealLocation1);

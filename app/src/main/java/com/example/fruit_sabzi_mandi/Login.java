@@ -27,7 +27,6 @@ public class Login extends AppCompatActivity {
     Button btnEnglish;
     public static final String SHRED_PREF = "sharedPrefs";
     public static final String Save_Email = "email";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

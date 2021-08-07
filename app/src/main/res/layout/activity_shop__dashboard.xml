@@ -24,6 +24,7 @@
             app:tabIndicator="@color/MainColor"
             app:tabIndicatorHeight="4dp"
             app:tabMode="fixed"
+            android:backgroundTint="#F3F1F2"
             app:tabTextColor="@color/white"
             android:layout_width="match_parent"
             app:tabIndicatorColor="@color/MainColor"

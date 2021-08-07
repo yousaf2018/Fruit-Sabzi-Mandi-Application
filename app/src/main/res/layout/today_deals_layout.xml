@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/card_container"
     android:layout_width="match_parent"
-    android:layout_height="340dp"
+    app:cardCornerRadius="40dp"
+    android:backgroundTint="#F3F1F2"
+    android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
     <LinearLayout
@@ -16,10 +18,12 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/todayDealImage"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            app:shapeAppearanceOverlay="@style/circularImage"
+            android:layout_height="400dp"
+            style="@style/circular"
             android:gravity="center"
             app:srcCompat="@drawable/fruit_sabzi_image" />
 
