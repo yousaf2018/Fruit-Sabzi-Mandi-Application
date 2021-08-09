@@ -53,14 +53,13 @@ public class Home extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         SharedPreferences pref = getActivity().getSharedPreferences(SHRED_PREF, getActivity().MODE_PRIVATE);
         Contact = pref.getString(Save_Contact, "contact");
-        Toast.makeText(getActivity(),""+Contact,Toast.LENGTH_LONG).show();
         initData();
         getDataFromFirebase();
         recyclerView1 = view.findViewById(R.id.recyclerView);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 1);
         gridLayoutManager.setOrientation(RecyclerView.VERTICAL);
         recyclerView1.setLayoutManager(gridLayoutManager);
-        adapter = new todayDealsAdapter(itemList);
+        adapter = new todayDealsAdapter(itemList,getActivity());
         recyclerView1.setAdapter(adapter);
         adapter.notifyDataSetChanged();
         return view;
@@ -76,7 +75,6 @@ public class Home extends Fragment {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-
                 itemList.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     todayDealsModelClass data = (todayDealsModelClass) ds.getValue(todayDealsModelClass.class);
@@ -93,38 +91,10 @@ public class Home extends Fragment {
             }
         });
     }
-
-
-    /*private void setUpFirsStore() {
-            firestore = FirebaseFirestore.getInstance();
-            Map<String, Object> data1 = new HashMap<>();
-            firestore.collection(quizTitle).get()
-                    .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                        @Override
-                        public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
-                            for(DocumentSnapshot data:list){
-                                quiz object = new quiz();
-                                Log.d(TAG, "onSuccess: "+data.toString());
-                                quiz_list.add(data.toObject(quiz.class));
-                                itemList.clear();
-                                itemList.add(new Model_Class(R.drawable.ic_icons8_quizlet,quiz_list.get(0).getTitle()));
-                                adapter.notifyDataSetChanged();
-                            }
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Log.d(TAG, "onFailure: ");
-                        }
-                    });
-        }
-    */
     private void initData() {
         String urlImage = "https://www.sampabjj.com/wp-content/uploads/2017/04/default-image.jpg";
         itemList =new ArrayList<>();
-        itemList.add(new todayDealsModelClass(urlImage,"Loading data wait a while",
+        itemList.add(new todayDealsModelClass(urlImage,"Loading data wait a while if available",
                 "0 Per/Kg","Unkown", "00/00/0000","03xxxxxxxx"));
     }
 

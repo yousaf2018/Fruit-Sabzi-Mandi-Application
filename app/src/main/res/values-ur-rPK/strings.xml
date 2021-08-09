@@ -23,8 +23,15 @@
     <string name="location">براہ کرم اپنا مقام درج کریں</string>
     <string name="phone">Please enter your phone number</string>
     <string name="select">گیلری سے تصویر منتخب کریں۔</string>
-    <string name="upload">تصویر اپ لوڈ کرنے کے لیے کلک کریں۔</string>
+    <string name="upload">اپ لوڈ کرنے کے لیے کلک کریں۔</string>
     <string name="Title">براہ کرم آئٹم کا نام درج کریں</string>
     <string name="Price">براہ کرم قیمت فی کلو درج کریں</string>
+    <string name="name">دکان کا نام</string>
+    <string name="locationShop">دکان کا مقام</string>
+    <string name="contact">رابطہ نمبر</string>
+    <string name="Logout">لاگ آوٹ</string>
+    <string name="shopDetails">دکان کی تفصیلات</string>
+x
+
 
 </resources>

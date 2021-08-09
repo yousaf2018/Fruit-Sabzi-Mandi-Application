@@ -24,8 +24,8 @@ public class Shop_Dashboard extends AppCompatActivity {
     public static final String SHRED_PREF = "sharedPrefs";
     public static final String Save_Email = "email";
     public static final String Save_Contact = "contact";
+    String shopName = "Fruit Sabzi Mandi";
     String email;
-    String shopName = "ShopName";
     String Contact = "034xxxxxxxx";
 
     @Override

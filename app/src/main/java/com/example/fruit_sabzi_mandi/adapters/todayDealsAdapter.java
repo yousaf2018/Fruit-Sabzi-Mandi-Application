@@ -1,19 +1,30 @@
 package com.example.fruit_sabzi_mandi.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.model.Model;
 import com.example.fruit_sabzi_mandi.R;
 import com.example.fruit_sabzi_mandi.models.todayDealsModelClass;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.ProgramViewHolder> {
@@ -24,8 +35,9 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
     private TextView todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice,todayDealContact,todayDealImage;
     private String course_name;
 
-    public  todayDealsAdapter(List<todayDealsModelClass>itemList){
+    public  todayDealsAdapter(List<todayDealsModelClass>itemList,Context context){
         this.itemList = itemList;
+        this.context = context;
     }
     @Override
     public ProgramViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -37,13 +49,16 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
 
     @Override
     public void onBindViewHolder(@NonNull ProgramViewHolder holder, int position) {
+        final todayDealsModelClass temp=itemList.get(position);
         String todayDealImage1 = itemList.get(position).getImageUrl();
         String todayDealTitle = itemList.get(position).getTodayDealTitle();
         String todayDealPrice = itemList.get(position).getTodayDealPrice();
         String todayDealLocation = itemList.get(position).getTodayDealLocation();
         String todayDealDate = itemList.get(position).getTodayDealDate();
         String todayDealContact = itemList.get(position).getTodayDealContact();
-        holder.setData(todayDealImage1,todayDealTitle,todayDealDate,todayDealLocation,todayDealPrice,todayDealContact);
+        holder.setData(todayDealImage1,todayDealTitle,
+                todayDealDate,todayDealLocation,
+                todayDealPrice,todayDealContact,position,holder);
     }
 
     @Override
@@ -66,7 +81,50 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
             todayDealContact = (TextView) itemView.findViewById(R.id.todayDealContactNumber);
         }
 
-        public void setData(String todayDealImage1, String todayDealTitle1, String todayDealDate1, String todayDealLocation1, String todayDealPrice1, String todayDealContact1) {
+        public void setData(String todayDealImage1, String todayDealTitle1,
+                            String todayDealDate1, String todayDealLocation1,
+                            String todayDealPrice1, String todayDealContact1,int position,ProgramViewHolder holder) {
+            holder.itemView.findViewById(R.id.btnClose).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    String contact,Title;
+                    contact = itemList.get(position).getTodayDealContact();
+                    Title = itemList.get(position).getTodayDealTitle();
+                    deleteDeal(contact,Title);
+                    itemList.remove(position);
+                    notifyDataSetChanged();
+                }
+
+                private void deleteDeal(String contact,String Title) {
+                    // Read from the database
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference myRef = database.getReference("Deals_Record").child(contact);
+                    Query query = myRef.orderByChild("todayDealTitle").equalTo(Title);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+                                appleSnapshot.getRef().removeValue();
+                                Toast.makeText(context,"Deal is successfully deleted",Toast.LENGTH_LONG).show();
+                                if (itemList.size()==0){
+                                    Toast.makeText(context,"There no deal available",Toast.LENGTH_LONG).show();
+                                    String urlImage = "https://www.sampabjj.com/wp-content/uploads/2017/04/default-image.jpg";
+                                    itemList =new ArrayList<>();
+                                    itemList.add(new todayDealsModelClass(urlImage,"No deal available Kindly upload",
+                                            "0 Per/Kg","Unkown", "00/00/0000","03xxxxxxxx"));
+                                    notifyDataSetChanged();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(DatabaseError databaseError) {
+                            Log.d("Hi", "onCancelled", databaseError.toException());
+                        }
+                    });
+
+                }
+            });
             Glide.with(context)
                     .load(todayDealImage1)
                     .into(todayDealImage);
@@ -75,15 +133,10 @@ public class todayDealsAdapter extends RecyclerView.Adapter<todayDealsAdapter.Pr
             todayDealLocation.setText(todayDealLocation1);
             todayDealPrice.setText(todayDealPrice1);
             todayDealContact.setText(todayDealContact1);
-            itemview.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    //Intent intent = new Intent(context, QuestionActivity.class);
-                   // intent.putExtra("course_name", course_name);
-                  //  Log.d("Hiiii",course_name);
-                    //context.startActivity(intent);
-                }
-            });
         }
+
+    }
+    public interface onCloseListener{
+        void onCloseListener(int position);
     }
 }

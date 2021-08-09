@@ -23,8 +23,13 @@
     <string name="phone">Please enter your phone number</string>
     <string name="Urdu">اردو</string>
     <string name="select">Select Image from Gallery</string>
-    <string name="upload">Click to upload image</string>
+    <string name="upload">Click to upload</string>
     <string name="Title">Please enter item name</string>
     <string name="Price">Please enter price per Kg</string>
+    <string name="name">Shop Name</string>
+    <string name="locationShop">Shop Location</string>
+    <string name="contact">Contact Number</string>
+    <string name="Logout">Logout</string>
+    <string name="shopDetails">Shop Details</string>
     <!-- TODO: Remove or change this placeholder text -->
 </resources>

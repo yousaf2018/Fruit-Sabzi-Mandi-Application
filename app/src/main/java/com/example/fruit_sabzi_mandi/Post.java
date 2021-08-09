@@ -135,7 +135,6 @@ public class Post extends Fragment {
                 fileRef.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        Toast.makeText(getActivity(),"I am here brother 5000",Toast.LENGTH_LONG).show();
                         fileRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
@@ -143,7 +142,7 @@ public class Post extends Fragment {
                                         Location.toString(),Date.toString(), Contact.toString());
                                 String key = root.push().getKey();
                                 root.child(Contact.toString()).child(key).setValue(model);
-                                Toast.makeText(getActivity(),"Uploaded Successfully",Toast.LENGTH_LONG).show();
+                                Toast.makeText(getActivity(),"Deal uploaded successfully",Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(view.INVISIBLE);
 
                             }
@@ -204,7 +203,6 @@ public class Post extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == PICK_IMAGE && resultCode == RESULT_OK){
             imageUri = data.getData();
-            Toast.makeText(getActivity(),"URL:>>"+imageUri,Toast.LENGTH_LONG).show();
             try {
                 Bitmap bitmap= MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),imageUri);
                 imageView.setImageBitmap(bitmap);
