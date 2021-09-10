@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Fruit Sabzi Mandi</string>
+    <string name="intro">Application is developed by Mahmood Yousaf</string>
+    <string name="wellcome">WelCome to Fruit Sabzi Mandi</string>
+    <string name="commissionShop">Commission Shop Dashboard</string>
+    <string name="farmerDashboard">Farmer Dashboard</string>
+    <string name="Login">Login Section</string>
+    <string name="Signup">Signup Section</string>
+    <string name="LoginDetail">Please provide your login details to continue</string>
+    <string name="SignupDetail">Please enter your details below for Signup Process</string>
+    <string name="SignupAd">Donot have account? Signup</string>
+    <string name="AlreadyAccount">Already have account? Click here to login</string>
+    <string name="hintEmail">Please enter your email here</string>
+    <string name="hintPassword">Please enter your password here</string>
+    <string name="hintConformPassword">Please enter again your password here</string>
+    <string name="SignupButton">Signup</string>
+    <string name="LoginButton">Login</string>
+    <string name="English">English</string>
+    <string name="Next">Click for next</string>
+    <string name="shopName">Please enter your shop name</string>
+    <string name="location">Please enter your location</string>
+    <string name="phone">Please enter your phone number</string>
+    <string name="Urdu">اردو</string>
+    <string name="select">Select Image from Gallery</string>
+    <string name="Email">Email</string>
+    <string name="upload">Click to upload</string>
+    <string name="Title">Please enter item name</string>
+    <string name="Price">Please enter price per Kg</string>
+    <string name="name">Shop Name</string>
+    <string name="locationShop">Shop Location</string>
+    <string name="contact">Contact Number</string>
+    <string name="Logout">Logout</string>
+    <string name="shopDetails">Shop Details</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+</resources>
